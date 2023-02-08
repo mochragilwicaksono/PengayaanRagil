@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\Petugas;
+use App\Models\Penumpang;
 use Illuminate\Support\Facades\Auth;
  
 class CustomAuthController extends Controller
@@ -24,8 +25,8 @@ class CustomAuthController extends Controller
             'password' => 'required',
         ]);
     
-        if ($cek = Petugas::where('username',$request->username)->first()) {
-            if(Hash::check($request->username, $cek->password)){
+        if ($cek = Penumpang::where('username',$request->username)->first()) {
+            if(Hash::check($request->password, $cek->password)){
                 Session::put('user', $cek);
                 Session::put('isLogin', true);
                 return redirect()->intended('dashboard')
@@ -52,14 +53,24 @@ class CustomAuthController extends Controller
     public function customRegistration(Request $request)
     {  
         $request->validate([
-            'nama_petugas' => 'required',
+            'nama_penumpang' => 'required',
+            'alamat' => 'required',
+            'telepon' => 'required',
+            'jeni_kelamin' => 'required',
+            'tanggal_lahir' => 'required',
             'username' => 'required',
             'password' => 'required|min:6',
-            'level' => 'required',
         ]);
             
-        $data = $request->all();
-        $check = $this->create($data);
+        Penumpang::create([
+            'nama_penumpang' => $request['nama_penumpang'],
+            'alamat' => $request['alamat'],
+            'telepon' => $request['telepon'],
+            'jeni_kelamin' => $request['jeni_kelamin'],
+            'tanggal_lahir' => $request['tanggal_lahir'],
+            'username' => $request['username'],
+            'password' => Hash::make($request['password']),
+          ]); 
           
         return redirect("dashboard");
     }
@@ -67,11 +78,14 @@ class CustomAuthController extends Controller
  
     public function create(array $data)
     {
-      return Petugas::create([
-        'nama_petugas' => $data['nama_petugas'],
+      return Penumpang::create([
+        'nama_penumpang' => $data['nama_penumpang'],
+        'alamat' => $data['alamat'],
+        'telepon' => $data['telepon'],
+        'jeni_kelamin' => $data['jeni_kelamin'],
+        'tanggal_lahir' => $data['tanggal_lahir'],
         'username' => $data['username'],
         'password' => Hash::make($data['password']),
-        'id_level' => $data['level']
       ]); 
     }       
      

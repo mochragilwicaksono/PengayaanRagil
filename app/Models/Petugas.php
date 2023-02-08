@@ -22,6 +22,7 @@ class Petugas extends Authenticatable
         'username',
         'password',
         'id_level',
+
     ];
 
     /**

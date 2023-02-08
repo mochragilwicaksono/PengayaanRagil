@@ -40,31 +40,41 @@
 						<img src="assets/images/logo-dark.png" alt="" class="img-fluid mb-4">
 						<h4 class="mb-3 f-w-400">Registrasi</h4>
 						<div class="form-group mb-3">
-							<label class="floating-label" for="username">Username</label>
-							<input type="text" class="form-control" id="username" placeholder="">
+							<label class="floating-label" for="nama_penumpang">Nama</label>
+							<input type="text" class="form-control" name="nama_penumpang" placeholder="">
 						</div>
 						<div class="form-group mb-3">
-							<label class="floating-label" for="nama_petugas">Nama Petugas</label>
-							<input type="text" class="form-control" id="nama_petugas" placeholder="">
+							<label class="floating-label" for="alamat">Alamat</label>
+							<input type="text" class="form-control" name="alamat" placeholder="">
 						</div>
-						<div class="form-group mb-4">
-							<label class="floating-label" for="Password">Password</label>
-							<input type="password" class="form-control" id="Password" placeholder="">
+						<div class="form-group mb-3">
+							<label class="floating-label" for="telepon">Telepon</label>
+							<input type="number" class="form-control" name="telepon" placeholder="">
 						</div>
-                        <div class="form-group mb-3">
-							<label class="floating-label" for="id_level">level</label>
+						<div class="form-group mb-3">
+							<label class="floating-label" for="jeni_kelamin"></label>
 							<div class="Input-group input-group-merge">
-                                <select id="id_level" class="form-control" name="id_level">
-                                <option value="">...</option>
-                                <option value="">Petugas</option>
-                                <option value="">Penumpang</option>
+                                <select id="jeni_kelamin" class="form-control" name="jeni_kelamin">
+                                <option value="">Jenis Kelamin</option>
+                                <option value="0">Laki - Laki</option>
+                                <option value="1">Perempuan</option>	
                                 </select>
-                                <span class="input-group-text cursor-point"><i class="bx bx-hide"></i>/span>
                             </div>
 						</div>
-
+						<div class="form-group mb-3">
+							<label class="floating-label" for="tanggal_lahir"></label>
+							<input type="date" class="form-control" name="tanggal_lahir" placeholder="">
+						</div>
+						<div class="form-group mb-3">
+							<label class="floating-label" for="username">Username</label>
+							<input type="text" class="form-control" name="username" placeholder="">
+						</div>
+						<div class="form-group mb-4">
+							<label class="floating-label" for="password">Password</label>
+							<input type="password" class="form-control" name="password" placeholder="">
+						</div>
 						<button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
-						<p class="mb-2">Already have an account? <a href="auth-signin.html" class="f-w-400">Signin</a></p>
+						<p class="mb-2">Already have an account? <a href="login" class="f-w-400">Signin</a></p>
 					</div>
 				</div>
 			</div>
